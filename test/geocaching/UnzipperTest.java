@@ -9,15 +9,22 @@ import org.junit.Test;
 public class UnzipperTest {
     @Test
     public void testZipFileOK() {
-        File f = new File("test\\geocaching\\8498280_zzzHome.zip");
+        File f = new File("test\\geocaching\\testZIP.zip");
         List<ByteArrayOutputStream> files = Unzipper.unZip(f);
         Assert.assertTrue(files.size() > 0);
     }
     
     @Test
     public void testZipFileNotOK() {
-        File f = new File("test\\geocaching\\UnzipperTest.java");
+        File f = new File("test\\geocaching\\testGPX.gpx");
         List<ByteArrayOutputStream> files = Unzipper.unZip(f);
         Assert.assertTrue(files.size() == 0);
+    }
+    
+    @Test
+    public void testNullFile() {
+        File f = new File("");
+        List<ByteArrayOutputStream> files = Unzipper.unZip(f);
+        Assert.assertNull(files);
     }
 }

@@ -17,7 +17,7 @@ public class ImportZipFileTest {
     
     @BeforeClass
     public static void setUpClass() throws Exception {
-        okFile = new File("test\\geocaching\\8498280_zzzHome.zip");
+        okFile = new File("test\\geocaching\\testZIP.zip");
     }
     
     @Before
@@ -36,11 +36,17 @@ public class ImportZipFileTest {
     
     @Test
     public void checkLoadFileOK() {
-        Assert.assertTrue(izf.getFile().isFile());
+        Assert.assertTrue(izf.getZippedFile().isFile());
     }
     
     @Test
     public void checkLoadedFileIsZip() {
         Assert.assertTrue(izf.importFile());
+    }
+    
+    @Test
+    public void checkLoadedFileIsSaved() {
+        izf.importFile();
+        Assert.assertTrue(izf.getUnzippedFiles().size() > 0);
     }
 }

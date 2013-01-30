@@ -14,25 +14,28 @@ import java.util.zip.ZipFile;
 final class ImportZipFile {
     
     private File f = null;
-    
-    List<ByteArrayOutputStream> files = null;
+    private List<ByteArrayOutputStream> files = null;
     
     public ImportZipFile() {
     
     }
 
-    void setZipFile(File f) {
+    public void setZipFile(File f) {
         if (f.exists()) {
            this.f = f;
         }
     }
 
-    public File getFile() {
+    public File getZippedFile() {
         return f;
     }
     
+    public List<ByteArrayOutputStream> getUnzippedFiles() {
+        return files;
+    }    
+    
     public boolean importFile() {
-        files = Unzipper.unZip(f);
+        this.files = Unzipper.unZip(f);
         if (files.size() > 0)
             return true;
         return false;
