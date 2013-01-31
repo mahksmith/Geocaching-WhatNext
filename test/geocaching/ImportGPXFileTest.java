@@ -11,7 +11,7 @@ public class ImportGPXFileTest {
     
     @Before
     public void setUp() {
-        ImportGPXFile igpxf = new ImportGPXFile();
+        igpxf = new ImportGPXFile();
     }
     
     @Test
@@ -20,18 +20,19 @@ public class ImportGPXFileTest {
         Assert.assertFalse(igpxf.setFile(new File("")));
     }
     
-    private List<Geocaches> geocaches = new ArrayList<Geocaches>();
+    private List<Geocache> geocaches = new ArrayList<Geocache>();
     private ImportGPXFile igpxf;
     
     @Test
-    public void fileExistsButIsntGPX() {
+    public void fileVerificationNonGPX() {
         igpxf.setFile(new File("test\\geocaching\\testZIP.zip"));
         Assert.assertFalse(igpxf.verifyGPXFile(geocaches));
     }
     
     @Test
-    public void fileExistsAndIsGPX() {
+    public void fileVerificationGPX() {
         igpxf.setFile(new File("test\\geocaching\\testGPX.gpx"));
+        // TODO
         Assert.assertTrue(igpxf.verifyGPXFile(geocaches));
     }
     

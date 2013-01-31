@@ -1,2 +1,1 @@
-Testing commit so github puts my profile on commit text properly.
-Test3
+An app for Geocaching that reads in a PocketQuery and tells you where the best place for you to go Geocaching based on your preferences and historical data.

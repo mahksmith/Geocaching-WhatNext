@@ -9,6 +9,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -18,14 +20,14 @@ public class ImportGPXFile {
     private File f;
 
     public boolean setFile(File file) {
-        if (file.isFile()) {
+        if (file.exists()) {
             f = file;
             return true;
         }
         return false;
     }
 
-    public boolean verifyGPXFile(List<Geocaches> geocaches) {
+    public boolean verifyGPXFile(List<Geocache> geocaches) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -39,7 +41,7 @@ public class ImportGPXFile {
         return false;
     }
     
-    public boolean verifyGPXString(String s, List<Geocaches> geocaches) {
+    public boolean verifyGPXString(String s, List<Geocache> geocaches) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -53,12 +55,33 @@ public class ImportGPXFile {
         return false;
     }
     
-    private boolean verifyGPX(final Document doc, List<Geocaches> geocaches) {
+    private boolean verifyGPX(final Document doc, List<Geocache> geocaches) {
         doc.getDocumentElement().normalize();
         
         NodeList nList = doc.getElementsByTagName("wpt");
         
-        return false;
+        // Iterate through every single waypoint in list.
+        for (int temp = 0; temp < nList.getLength(); temp++) {
+            // TODO check here if cache is geocache or waypoint
+            
+            
+            Node nNode = nList.item(temp);
+            
+            Element eElement = (Element) nNode;
+            
+            float lat = Float.parseFloat(eElement.getAttribute("lat"));
+            float lon = Float.parseFloat(eElement.getAttribute("lon"));
+                        
+            // get geocache parameters
+            String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+            
+            Geocache newGeocache = new Geocache.Builder(name, lat, lon)
+                    // Optional parameters here
+                    .build();            
+            
+            geocaches.add(newGeocache);
+        }
+        return true;
     }
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="mark-windows8" name="geocaching.UnzipperTest" tests="3" time="0.336" timestamp="2013-01-30T02:13:25">
+<testsuite errors="0" failures="0" hostname="mark-windows8" name="geocaching.UnzipperTest" tests="3" time="0.261" timestamp="2013-01-31T06:39:06">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="NZ" />
@@ -56,7 +56,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner geocaching.UnzipperTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\test\results\TEST-geocaching.UnzipperTest.xml crashfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junitvmwatcher7304787279409185875.properties propsfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junit2902476550734158340.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner geocaching.UnzipperTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\test\results\TEST-geocaching.UnzipperTest.xml crashfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junitvmwatcher4672463317614861512.properties propsfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junit6783340427170834017.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -75,7 +75,6 @@
     <property name="debug-transport" value="dt_shmem" />
     <property name="netbeans.home" value="C:\Program Files\NetBeans 7.2.1\platform" />
     <property name="build.compiler.emacs" value="true" />
-    <property name="org.netbeans.lib.profiler.servletTracking" value="false" />
     <property name="libs.javaee-web-api-6.0.src" value="" />
     <property name="libs.ejb3-persistence.src" value="" />
     <property name="libs.Java-EE-GlassFish-v3.javadoc" value="C:\Program Files\NetBeans 7.2.1\enterprise\docs\javaee6-doc-api.zip" />
@@ -110,7 +109,6 @@
     <property name="libs.junit.classpath" value="C:\Users\Mark\AppData\Roaming\NetBeans\7.2.1\modules\ext\junit-3.8.2.jar" />
     <property name="libs.jaxb.javadoc" value="C:\Program Files\NetBeans 7.2.1\ide\docs\jaxb-api-doc.zip" />
     <property name="libs.struts.classpath" value="C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\antlr-2.7.2.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\bsf-2.3.0.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\commons-chain-1.2.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\commons-digester-1.8.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\commons-io-1.1.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\jstl-1.0.2.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\oro-2.0.8.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\standard-1.0.6.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-core-1.3.10.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-el-1.3.10.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
-    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="ant.home" value="C:\Program Files\NetBeans 7.2.1\java\ant" />
     <property name="libs.junit_4.src" value="C:\Users\Mark\AppData\Roaming\NetBeans\7.2.1\docs\junit-4.10-sources.jar" />
     <property name="libs.testng.classpath" value="C:\Program Files\NetBeans 7.2.1\platform\modules\ext\testng-6.5.1-dist.jar" />
@@ -211,7 +209,6 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="C:\Users\Mark\AppData\Roaming\NetBeans\7.2.1" />
-    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="java.io.tmpdir" value="C:\Users\Mark\AppData\Local\Temp\" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
@@ -331,10 +328,10 @@
     <property name="libs.metro.src" value="" />
     <property name="libs.absolutelayout.classpath" value="C:\Program Files\NetBeans 7.2.1\java\modules\ext\AbsoluteLayout.jar" />
     <property name="excludes" value="" />
-    <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.metro.classpath" value="C:\Program Files\NetBeans 7.2.1\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-api.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-extra.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-rt.jar;C:\Program Files\NetBeans 7.2.1\enterprise\modules\ext\metro\webservices-tools.jar" />
-    <property name="java.class.path" value="C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\classes;C:\Users\Mark\AppData\Roaming\NetBeans\7.2.1\modules\ext\junit-4.10.jar;C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\test\classes;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant-junit4.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
     <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="java.class.path" value="C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\classes;C:\Users\Mark\AppData\Roaming\NetBeans\7.2.1\modules\ext\junit-4.10.jar;C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\test\classes;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 7.2.1\java\ant\lib\ant-junit4.jar" />
     <property name="do.mkdist" value="true" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="C:\Program Files\NetBeans 7.2.1\java\modules\ext\eclipselink\javax.persistence-2.0.3.jar" />
@@ -348,8 +345,8 @@
     <property name="libs.restlib.javadoc" value="C:\Program Files\NetBeans 7.2.1\enterprise\docs\jersey-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\jersey-apache-client-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\jersey-atom-abdera-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\jersey-guice-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\jersey-multipart-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\jersey-simple-server-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\jersey-spring-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\oauth-client-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\oauth-server-1.8-javadoc.zip;C:\Program Files\NetBeans 7.2.1\enterprise\docs\oauth-signature-1.8-javadoc.zip" />
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 7.2.1\ide\modules\ext\jaxb\api\jaxb-api.jar" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 7.2.1\java\modules\ext\eclipselink\eclipselink-2.3.2.jar;C:\Program Files\NetBeans 7.2.1\java\modules\ext\eclipselink\javax.persistence-2.0.3.jar;C:\Program Files\NetBeans 7.2.1\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_1.0.1.jar" />
-    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 7.2.1\java\docs\beansbinding-1.2.1-doc.zip" />
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 7.2.1\java\docs\beansbinding-1.2.1-doc.zip" />
     <property name="file.reference.geocaching-src" value="src" />
     <property name="libs.Java-EE-GlassFish-v3.classpath" value="C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.servlet.jsp.jstl.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.ejb.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.security.auth.message.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.enterprise.deploy.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\bean-validator.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.servlet.jsp-api.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.jms.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\weld-osgi-bundle.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jaxb-osgi.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.transaction.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.servlet.jsp.jstl-api.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\endorsed\javax.annotation.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.el-api.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.management.j2ee.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.persistence.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.resource.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.mail.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.servlet-api.jar;C:\Program Files\glassfish-3.1.2.2\mq\lib\jaxm-api.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\webservices-osgi.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\endorsed\webservices-api-osgi.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.security.jacc.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\javax.faces.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\endorsed\jaxb-api-osgi.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jersey-core.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\web-core.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jackson-core-asl.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jackson-jaxrs.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jackson-mapper-asl.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jersey-client.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jersey-core.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jersey-gf-server.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jersey-json.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jersey-multipart.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\jettison.jar;C:\Program Files\glassfish-3.1.2.2\glassfish\modules\mimepull.jar" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
@@ -380,9 +377,9 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="geocaching.UnzipperTest" name="testNullFile" time="0.006" />
-  <testcase classname="geocaching.UnzipperTest" name="testZipFileNotOK" time="0.055" />
-  <testcase classname="geocaching.UnzipperTest" name="testZipFileOK" time="0.107" />
+  <testcase classname="geocaching.UnzipperTest" name="testZipFileOK" time="0.101" />
+  <testcase classname="geocaching.UnzipperTest" name="testZipFileNotOK" time="0.05" />
+  <testcase classname="geocaching.UnzipperTest" name="testNullFile" time="0.001" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
