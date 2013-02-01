@@ -12,34 +12,30 @@ public class ImportGPXFileTest {
     
     @Before
     public void setUp() {
-        igpxf = new ImportGPXFile();
-        geocaches = new ArrayList<Geocache>();
-    }
-    
-    @Test
-    public void fileDoesntExist() {
-        Assert.assertFalse(igpxf.setFile(new File("")));
+        geocaches = new ArrayList<>();
     }
     
     private List<Geocache> geocaches = new ArrayList<>();
-    private ImportGPXFile igpxf;
     
     @Test
     public void fileVerificationNonGPX() {
-        igpxf.setFile(new File("test\\geocaching\\testZIP.zip"));
-        Assert.assertFalse(igpxf.verifyGPXFile(geocaches));
+        Assert.assertFalse(ImportGPXFile.verifyGPXFile(
+                new File("test\\\\geocaching\\\\testZIP.zip"),
+                (geocaches)));
     }
     
     @Test
     public void fileVerificationGPX() {
-        igpxf.setFile(new File("test\\geocaching\\testGPX.gpx"));
-        Assert.assertTrue(igpxf.verifyGPXFile(geocaches));
+        Assert.assertTrue(ImportGPXFile.verifyGPXFile(
+                new File("test\\\\geocaching\\\\testGPX.gpx"),
+                geocaches));
         Assert.assertEquals(1000, geocaches.size());
     }
     
     @Test
     public void fileVerificationNull() {
-        Assert.assertFalse(igpxf.verifyGPXFile(geocaches));
+        Assert.assertFalse(ImportGPXFile.verifyGPXFile(
+                new File(""), geocaches));
     }
     
     @Test
@@ -47,12 +43,13 @@ public class ImportGPXFileTest {
         /* I'm not sure of the best way to do this, but the easiest would be
          * to take the output from unzipping..
          */
-        ImportZipFile izf = new ImportZipFile();
-        izf.setZipFile(new File("test\\geocaching\\testZIP.zip"));
-        izf.importFile();
+        //ImportZipFile izf = new ImportZipFile();
+        //izf.setZipFile(new File("test\\geocaching\\testZIP.zip"));
+        List<ByteArrayOutputStream> output;
+        output = Unzipper.unZip(new File("test\\geocaching\\testZIP.zip"));
         
-        for (ByteArrayOutputStream baos : izf.getUnzippedFiles()) {
-            igpxf.verifyGPXString(baos.toString(), geocaches);
+        for (ByteArrayOutputStream baos : output) {
+            ImportGPXFile.verifyGPXString(baos.toString(), geocaches);
         }
         // Checking all geocaches are accounted for
         Assert.assertEquals(1000, geocaches.size());
@@ -60,11 +57,11 @@ public class ImportGPXFileTest {
     
     @Test
     public void GPXFromStringNotOK() {
-        Assert.assertFalse(igpxf.verifyGPXString("this is a bad string", geocaches));
+        Assert.assertFalse(ImportGPXFile.verifyGPXString("this is a bad string", geocaches));
     }
     
     @Test
     public void testNullStringOK() {
-        Assert.assertFalse(igpxf.verifyGPXString(null, geocaches));
+        Assert.assertFalse(ImportGPXFile.verifyGPXString(null, geocaches));
     }
 }

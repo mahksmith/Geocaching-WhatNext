@@ -19,17 +19,8 @@ import org.xml.sax.SAXException;
 
 public class ImportGPXFile {
     
-    private File f;
 
-    public boolean setFile(File file) {
-        if (file.exists()) {
-            f = file;
-            return true;
-        }
-        return false;
-    }
-
-    public boolean verifyGPXFile(List<Geocache> geocaches) {
+    public static boolean verifyGPXFile(File f, List<Geocache> geocaches) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -45,7 +36,7 @@ public class ImportGPXFile {
         return false;
     }
     
-    public boolean verifyGPXString(String s, List<Geocache> geocaches) {
+    public static boolean verifyGPXString(String s, List<Geocache> geocaches) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -65,7 +56,7 @@ public class ImportGPXFile {
         return false;
     }
     
-    private boolean verifyGPX(final Document doc, List<Geocache> geocaches) {
+    private static boolean verifyGPX(final Document doc, List<Geocache> geocaches) {
         doc.getDocumentElement().normalize();
         
         NodeList nList = doc.getElementsByTagName("wpt");

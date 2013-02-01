@@ -4,9 +4,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class UnzipperTest {
+    
     @Test
     public void testZipFileOK() {
         File f = new File("test\\geocaching\\testZIP.zip");
@@ -22,7 +25,7 @@ public class UnzipperTest {
     }
     
     @Test
-    public void testNullFile() {
+    public void testFileNotExist() {
         File f = new File("");
         List<ByteArrayOutputStream> files = Unzipper.unZip(f);
         Assert.assertNull(files);

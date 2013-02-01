@@ -9,6 +9,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -34,9 +36,15 @@ public class Unzipper{
             return listFiles;
         }
         
-        catch (Exception e) {
-            return null;
+        catch (NullPointerException ex) {
+            Logger.getLogger(Unzipper.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        catch (IOException ex) {
+            Logger.getLogger(Unzipper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
         
     }
     
