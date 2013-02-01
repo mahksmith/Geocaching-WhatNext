@@ -36,11 +36,7 @@ public class Unzipper{
             return listFiles;
         }
         
-        catch (NullPointerException ex) {
-            Logger.getLogger(Unzipper.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        catch (IOException ex) {
+        catch (IOException | NullPointerException ex) {
             Logger.getLogger(Unzipper.class.getName()).log(Level.SEVERE, null, ex);
         }
         

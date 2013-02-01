@@ -43,8 +43,6 @@ public class ImportGPXFileTest {
         /* I'm not sure of the best way to do this, but the easiest would be
          * to take the output from unzipping..
          */
-        //ImportZipFile izf = new ImportZipFile();
-        //izf.setZipFile(new File("test\\geocaching\\testZIP.zip"));
         List<ByteArrayOutputStream> output;
         output = Unzipper.unZip(new File("test\\geocaching\\testZIP.zip"));
         
