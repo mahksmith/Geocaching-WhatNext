@@ -38,7 +38,9 @@ public class ImportGPXFile {
             return verifyGPX(doc, geocaches);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
             Logger.getLogger(ImportGPXFile.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(ImportGPXFile.class.getName()).log(Level.WARNING, "Need to set a file using setfile()", ex);
+        }
         
         return false;
     }
@@ -53,9 +55,12 @@ public class ImportGPXFile {
             Document doc = dBuilder.parse(is);
             
             return verifyGPX(doc, geocaches);
-        } catch (SAXException | IOException | ParserConfigurationException ex) {
+        } catch (SAXException | IOException | ParserConfigurationException ex ) {
             Logger.getLogger(ImportGPXFile.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        } catch (NullPointerException ex) {
+            Logger.getLogger(ImportGPXFile.class.getName()).log(Level.WARNING, 
+                    "Failed to give String for input", ex);
+        }
         
         return false;
     }
@@ -80,10 +85,11 @@ public class ImportGPXFile {
                 continue;
             }
             
+            // Waypoint attributes
             float lat = Float.parseFloat(eElement.getAttribute("lat"));
             float lon = Float.parseFloat(eElement.getAttribute("lon"));
                         
-            // get geocache parameters
+            // Waypoint parameters
             String name = eElement.getElementsByTagName("name").item(0).getTextContent();
             
             Geocache newGeocache = new Geocache.Builder(name, lat, lon)

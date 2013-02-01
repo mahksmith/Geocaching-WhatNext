@@ -2,7 +2,6 @@ package geocaching;
 
 class Geocache {
     
-    //TODO implement Fluent Builder pattern
     private final float lat;
     private final float lon;
     private final String name;
@@ -47,13 +46,10 @@ class Geocache {
         public Builder withX(int val) {
             x = val; return this;
         }
-        
-        public Builder withY(int val) {
-            y = val; return this;
-        }
         */
         
         public Geocache build() {
+            // perhaps need to check that all required parameters are used.
             return new Geocache(this);
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="mark-windows8" name="geocaching.UnzipperTest" tests="3" time="0.245" timestamp="2013-02-01T00:22:30">
+<testsuite errors="0" failures="0" hostname="mark-windows8" name="geocaching.UnzipperTest" tests="3" time="0.368" timestamp="2013-02-01T02:47:45">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="NZ" />
@@ -56,7 +56,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner geocaching.UnzipperTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\test\results\TEST-geocaching.UnzipperTest.xml crashfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junitvmwatcher639706831255997565.properties propsfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junit4911972280118907428.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner geocaching.UnzipperTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\test\results\TEST-geocaching.UnzipperTest.xml crashfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junitvmwatcher5946027924863172250.properties propsfile=C:\Users\Mark\Documents\GitHub\Geocaching-WhatNext\build\junit4545384264885410732.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="libs.Java-EE-GlassFish-v3.wsjwsdp" value="" />
@@ -377,9 +377,9 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="geocaching.UnzipperTest" name="testZipFileOK" time="0.098" />
-  <testcase classname="geocaching.UnzipperTest" name="testZipFileNotOK" time="0.044" />
-  <testcase classname="geocaching.UnzipperTest" name="testNullFile" time="0.001" />
+  <testcase classname="geocaching.UnzipperTest" name="testZipFileNotOK" time="0.066" />
+  <testcase classname="geocaching.UnzipperTest" name="testZipFileOK" time="0.12" />
+  <testcase classname="geocaching.UnzipperTest" name="testNullFile" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

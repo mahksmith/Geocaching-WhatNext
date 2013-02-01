@@ -33,8 +33,13 @@ public class ImportGPXFileTest {
     @Test
     public void fileVerificationGPX() {
         igpxf.setFile(new File("test\\geocaching\\testGPX.gpx"));
-        // TODO
         Assert.assertTrue(igpxf.verifyGPXFile(geocaches));
+        Assert.assertEquals(1000, geocaches.size());
+    }
+    
+    @Test
+    public void fileVerificationNull() {
+        Assert.assertFalse(igpxf.verifyGPXFile(geocaches));
     }
     
     @Test
@@ -45,16 +50,21 @@ public class ImportGPXFileTest {
         ImportZipFile izf = new ImportZipFile();
         izf.setZipFile(new File("test\\geocaching\\testZIP.zip"));
         izf.importFile();
-        System.out.println(izf.getUnzippedFiles().size());
+        
         for (ByteArrayOutputStream baos : izf.getUnzippedFiles()) {
             igpxf.verifyGPXString(baos.toString(), geocaches);
         }
-        
+        // Checking all geocaches are accounted for
         Assert.assertEquals(1000, geocaches.size());
     }
     
     @Test
     public void GPXFromStringNotOK() {
         Assert.assertFalse(igpxf.verifyGPXString("this is a bad string", geocaches));
+    }
+    
+    @Test
+    public void testNullStringOK() {
+        Assert.assertFalse(igpxf.verifyGPXString(null, geocaches));
     }
 }
