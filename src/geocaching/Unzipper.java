@@ -53,7 +53,7 @@ public class Unzipper{
                 int count;
                 byte data[] = new byte[BUFFER_SIZE];
                 
-                if (!entry.getName().endsWith("-wpts.gpx")) {
+                if (entry.getName().endsWith(".gpx")) {
                     BufferedOutputStream out = new BufferedOutputStream(outputStream, BUFFER_SIZE);
                     while ((count = inputStream.read(data, 0, BUFFER_SIZE)) != -1) {
                         out.write(data, 0, count);

@@ -1,5 +1,6 @@
 package geocaching;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +13,15 @@ public class ImportGPXFileTest {
     @Before
     public void setUp() {
         igpxf = new ImportGPXFile();
+        geocaches = new ArrayList<Geocache>();
     }
     
     @Test
     public void fileDoesntExist() {
-        ImportGPXFile igpxf = new ImportGPXFile();
         Assert.assertFalse(igpxf.setFile(new File("")));
     }
     
-    private List<Geocache> geocaches = new ArrayList<Geocache>();
+    private List<Geocache> geocaches = new ArrayList<>();
     private ImportGPXFile igpxf;
     
     @Test
@@ -38,11 +39,22 @@ public class ImportGPXFileTest {
     
     @Test
     public void GPXFromStringOK() {
-        // TODO: Make the files and verify
+        /* I'm not sure of the best way to do this, but the easiest would be
+         * to take the output from unzipping..
+         */
+        ImportZipFile izf = new ImportZipFile();
+        izf.setZipFile(new File("test\\geocaching\\testZIP.zip"));
+        izf.importFile();
+        System.out.println(izf.getUnzippedFiles().size());
+        for (ByteArrayOutputStream baos : izf.getUnzippedFiles()) {
+            igpxf.verifyGPXString(baos.toString(), geocaches);
+        }
+        
+        Assert.assertEquals(1000, geocaches.size());
     }
     
     @Test
     public void GPXFromStringNotOK() {
-        // TODO: make the files and verify
+        Assert.assertFalse(igpxf.verifyGPXString("this is a bad string", geocaches));
     }
 }
