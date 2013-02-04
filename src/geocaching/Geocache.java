@@ -5,11 +5,15 @@ class Geocache {
     private final float lat;
     private final float lon;
     private final String name;
+    
+    private final String type;
 
     private Geocache(Builder builder) {
         this.lat = builder.lat;
         this.lon = builder.lon;
         this.name = builder.name;
+        
+        this.type = builder.type;
     }    
     
     public float getLat() {
@@ -24,6 +28,10 @@ class Geocache {
         return this.name;
     }
     
+    public String getType() {
+        return this.type;
+    }
+    
     /**
      * Using Fluid Builder pattern
      */
@@ -35,6 +43,7 @@ class Geocache {
         private final String name;
         
         // optional parameters;
+        private String type;
         
         public Builder(String name, float lat, float lon) {
             this.lat = lat;
@@ -42,11 +51,10 @@ class Geocache {
             this.name = name;
         }
         
-        /*
-        public Builder withX(int val) {
-            x = val; return this;
+        public Builder withType(String val) {
+            this.type = val; 
+            return this;
         }
-        */
         
         public Geocache build() {
             // perhaps need to check that all required parameters are used.

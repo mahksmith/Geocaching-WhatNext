@@ -79,12 +79,14 @@ public class ImportGPXFile {
             // Waypoint attributes
             float lat = Float.parseFloat(eElement.getAttribute("lat"));
             float lon = Float.parseFloat(eElement.getAttribute("lon"));
+            
+            String type = eElement.getElementsByTagName("type").item(0).getTextContent();
                         
             // Waypoint parameters
             String name = eElement.getElementsByTagName("name").item(0).getTextContent();
             
             Geocache newGeocache = new Geocache.Builder(name, lat, lon)
-                    // Optional parameters here
+                    .withType(type)
                     .build();            
             
             geocaches.add(newGeocache);

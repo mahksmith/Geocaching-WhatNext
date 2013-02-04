@@ -50,8 +50,8 @@ public class Unzipper{
                     new BufferedInputStream(new ByteArrayInputStream(zippedFile.toByteArray())));
 
             ZipEntry entry;
-
-            List<ByteArrayOutputStream> result = new ArrayList<ByteArrayOutputStream>();
+            
+            List<ByteArrayOutputStream> result = new ArrayList<>();
             while ((entry = inputStream.getNextEntry()) != null) {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 int count;
