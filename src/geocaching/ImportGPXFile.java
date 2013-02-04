@@ -21,6 +21,7 @@ public class ImportGPXFile {
     
 
     public static boolean verifyGPXFile(File f, List<Geocache> geocaches) {
+        // TODO change this to return list instead of boolean!!
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

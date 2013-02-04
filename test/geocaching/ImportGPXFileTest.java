@@ -20,14 +20,14 @@ public class ImportGPXFileTest {
     @Test
     public void fileVerificationNonGPX() {
         Assert.assertFalse(ImportGPXFile.verifyGPXFile(
-                new File("test\\\\geocaching\\\\testZIP.zip"),
+                new File("test\\geocaching\\testZIP.zip"),
                 (geocaches)));
     }
     
     @Test
     public void fileVerificationGPX() {
         Assert.assertTrue(ImportGPXFile.verifyGPXFile(
-                new File("test\\\\geocaching\\\\testGPX.gpx"),
+                new File("test\\geocaching\\testGPX.gpx"),
                 geocaches));
         Assert.assertEquals(1000, geocaches.size());
     }
