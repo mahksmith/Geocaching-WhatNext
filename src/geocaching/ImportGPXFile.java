@@ -3,6 +3,7 @@ package geocaching;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,24 +21,24 @@ import org.xml.sax.SAXException;
 public class ImportGPXFile {
     
 
-    public static boolean verifyGPXFile(File f, List<Geocache> geocaches) {
+    public static List<Geocache> verifyGPXFile(File f) {
         // TODO change this to return list instead of boolean!!
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(f);
             
-            return verifyGPX(doc, geocaches);
+            return verifyGPX(doc);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
             Logger.getLogger(ImportGPXFile.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalArgumentException ex) {
             Logger.getLogger(ImportGPXFile.class.getName()).log(Level.WARNING, "Need to set a file using setfile()", ex);
         }
         
-        return false;
+        return null;
     }
     
-    public static boolean verifyGPXString(String s, List<Geocache> geocaches) {
+    public static List<Geocache> verifyGPXString(String s) {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -46,7 +47,7 @@ public class ImportGPXFile {
             is.setCharacterStream(new StringReader(s));
             Document doc = dBuilder.parse(is);
             
-            return verifyGPX(doc, geocaches);
+            return verifyGPX(doc);
         } catch (SAXException | IOException | ParserConfigurationException ex ) {
             Logger.getLogger(ImportGPXFile.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NullPointerException ex) {
@@ -54,10 +55,11 @@ public class ImportGPXFile {
                     "Failed to give String for input", ex);
         }
         
-        return false;
+        return null;
     }
     
-    private static boolean verifyGPX(final Document doc, List<Geocache> geocaches) {
+    private static List<Geocache> verifyGPX(final Document doc) {
+        List<Geocache> geocaches = new ArrayList<>();
         doc.getDocumentElement().normalize();
         
         NodeList nList = doc.getElementsByTagName("wpt");
@@ -92,7 +94,7 @@ public class ImportGPXFile {
             
             geocaches.add(newGeocache);
         }
-        return true;
+        return geocaches;
     }
     
     

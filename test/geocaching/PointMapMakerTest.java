@@ -25,9 +25,8 @@ public class PointMapMakerTest {
     
     @Test
     public void testImageGenerationOK() {
-        List<Geocache> list = new ArrayList<>();
         File f = new File("test\\geocaching\\4208888.gpx");
-        ImportGPXFile.verifyGPXFile(f, list);
+        List<Geocache> list = ImportGPXFile.verifyGPXFile(f);
         System.out.println(list.size());
         BufferedImage i = PointMapMaker.createPointMap(list, 800, 600);
         

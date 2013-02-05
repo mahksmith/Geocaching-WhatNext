@@ -10,32 +10,26 @@ import org.junit.Test;
 
 public class ImportGPXFileTest {
     
-    @Before
-    public void setUp() {
-        geocaches = new ArrayList<>();
-    }
-    
-    private List<Geocache> geocaches = new ArrayList<>();
+    private List<Geocache> geocaches;
     
     @Test
     public void fileVerificationNonGPX() {
-        Assert.assertFalse(ImportGPXFile.verifyGPXFile(
-                new File("test\\geocaching\\testZIP.zip"),
-                (geocaches)));
+        geocaches = ImportGPXFile.verifyGPXFile(
+                new File("test\\geocaching\\testZIP.zip"));
+        Assert.assertNull(geocaches);
     }
     
     @Test
     public void fileVerificationGPX() {
-        Assert.assertTrue(ImportGPXFile.verifyGPXFile(
-                new File("test\\geocaching\\testGPX.gpx"),
-                geocaches));
+        geocaches = ImportGPXFile.verifyGPXFile(
+                new File("test\\geocaching\\testGPX.gpx"));
         Assert.assertEquals(1000, geocaches.size());
     }
     
     @Test
     public void fileVerificationNull() {
-        Assert.assertFalse(ImportGPXFile.verifyGPXFile(
-                new File(""), geocaches));
+        Assert.assertNull(ImportGPXFile.verifyGPXFile(
+                new File("")));
     }
     
     @Test
@@ -45,9 +39,9 @@ public class ImportGPXFileTest {
          */
         List<ByteArrayOutputStream> output;
         output = Unzipper.unZip(new File("test\\geocaching\\testZIP.zip"));
-        
+        geocaches = new ArrayList<>();
         for (ByteArrayOutputStream baos : output) {
-            ImportGPXFile.verifyGPXString(baos.toString(), geocaches);
+            geocaches.addAll(ImportGPXFile.verifyGPXString(baos.toString()));
         }
         // Checking all geocaches are accounted for
         Assert.assertEquals(1000, geocaches.size());
@@ -55,11 +49,13 @@ public class ImportGPXFileTest {
     
     @Test
     public void GPXFromStringNotOK() {
-        Assert.assertFalse(ImportGPXFile.verifyGPXString("this is a bad string", geocaches));
+        geocaches = ImportGPXFile.verifyGPXString("this is a bad string");
+        Assert.assertNull(geocaches);
     }
     
     @Test
     public void testNullStringOK() {
-        Assert.assertFalse(ImportGPXFile.verifyGPXString(null, geocaches));
+        geocaches = ImportGPXFile.verifyGPXString(null);
+        Assert.assertNull(geocaches);
     }
 }
