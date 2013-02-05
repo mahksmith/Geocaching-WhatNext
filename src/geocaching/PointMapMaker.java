@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class PointMapMaker {
-    static int pointSize = 4;
+    static int pointSize = 3;
     
     public static BufferedImage createPointMap(List<Geocache> geocaches, int imageWidth, int imageHeight) {
         // Calculate bounds TODO get this information from GPX file
@@ -105,13 +105,13 @@ class PointMapMaker {
         Color c;
         switch(geocacheType) {
             case "Geocache|Traditional Cache"   : c = Color.GREEN; break;
-            // Project A.P.E
-            // LetterBox
+            case "Geocache|Project APE Cache"   : c = Color.GREEN; break;
+            case "Geocache|Letterbox Hybrid"    : c = Color.GREEN; break;
             case "Geocache|Multi-cache"         : c = Color.YELLOW; break;
             case "Geocache|Event Cache"         : c = Color.RED; break;
-            // MEGA
-            // CITO
-            // GPS Adventures
+            case "Geocache|Mega-Event Cache"    : c = Color.RED; break;
+            case "Geocache|Cache In Trash Out Event" : c = Color.RED; break;
+            case "Geocache|GPS Adventures Exhibit" : c = Color.RED; break;
             case "Geocache|Virtual Cache"       : c = Color.WHITE; break;
             case "Geocache|Webcam Cache"        : c = Color.WHITE; break;
             case "Geocache|Earthcache"          : c = Color.WHITE; break;

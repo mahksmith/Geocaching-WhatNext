@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class PointMapMakerTest {
@@ -30,7 +29,7 @@ public class PointMapMakerTest {
         File f = new File("test\\geocaching\\4208888.gpx");
         ImportGPXFile.verifyGPXFile(f, list);
         System.out.println(list.size());
-        BufferedImage i = PointMapMaker.createPointMap(list, 400, 400);
+        BufferedImage i = PointMapMaker.createPointMap(list, 800, 600);
         
         File output = new File("pointmap.png");
         try {
