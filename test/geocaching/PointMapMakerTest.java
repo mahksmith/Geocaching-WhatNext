@@ -18,7 +18,7 @@ public class PointMapMakerTest {
     public void testFindPositionOnMap() {
         
         Assert.assertEquals(
-                new Point(129, 60), 
+                new Point(187, 60), 
                 PointMapMaker.findPositionOnMap(
                     400, 400, -37.2f, -39.6f, 175.2f, 176.6f, -37.56f, 175.98f));
         
