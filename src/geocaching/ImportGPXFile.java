@@ -73,7 +73,7 @@ public class ImportGPXFile {
              * pass over all other waypoints.
              */
             String sym = eElement.getElementsByTagName("sym").item(0).getTextContent();
-            if (sym.compareTo("Geocache") != 0) {
+            if (sym.contains("Geocache") != true) {
                 continue;
             }
             
@@ -88,7 +88,7 @@ public class ImportGPXFile {
             
             Geocache newGeocache = new Geocache.Builder(name, lat, lon)
                     .withType(type)
-                    .build();            
+                    .build();         
             
             geocaches.add(newGeocache);
         }

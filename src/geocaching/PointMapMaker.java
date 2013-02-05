@@ -14,10 +14,10 @@ class PointMapMaker {
     
     public static BufferedImage createPointMap(List<Geocache> geocaches, int imageWidth, int imageHeight) {
         // Calculate bounds TODO get this information from GPX file
-        float boundNorthLat = -36.723667f;
-        float boundSouthLat = -41.436117f;
-        float boundWestLon = 173.752383f;
-        float boundEastLon = 176.43375f;
+        float boundNorthLat = -36.6043f;
+        float boundSouthLat = -40.3593f;
+        float boundWestLon = 174.02338f;
+        float boundEastLon = 176.38638f;
         
         
         BufferedImage image = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_INT_ARGB);
@@ -53,18 +53,28 @@ class PointMapMaker {
         float boundNorthingDiff = Math.abs(northBound - southBound);
         float boundEastingDiff = Math.abs(westBound - eastBound);
         
-        // Calculate the bound Ratio
+        int offsetX = 0;
+        int offsetY = 0;
+        
+        // Calculate the bound Ratio, and offsets for centering
         float[] boundRatio; // in the form [x,y]
         if (boundEastingDiff > boundNorthingDiff) {
             boundRatio = new float[]{1, boundNorthingDiff / boundEastingDiff};
+            
         } else {
             boundRatio = new float[]{boundEastingDiff / boundNorthingDiff, 1};
-        }
+        }        // Multiply the gaps by ratio to find scaled image size
         
         // Multiply the gaps by ratio to find scaled image size
         int[] scaledImageSize = new int[2];
         scaledImageSize[0] = (int)(boundRatio[0] * imageWidth);
         scaledImageSize[1] = (int)(boundRatio[1] * imageHeight);
+        
+        if (scaledImageSize[0] < imageWidth) {
+            offsetX = (int)(0.25 * scaledImageSize[0]);
+        } else if (scaledImageSize[1] < imageHeight) {
+            offsetY = (int)(0.25 * scaledImageSize[1]);
+        }
         
         // calculate pixel placement
         float y = (Math.abs(cacheLat - northBound) / (boundNorthingDiff / imageHeight));
@@ -76,8 +86,7 @@ class PointMapMaker {
         
         // TODO Center the points on the map
         
-        
-        return new Point((int)x,(int)y);
+        return new Point((int)x + offsetX,(int)y + offsetY);
     }
     
     private static Color getColor(String geocacheType) {
