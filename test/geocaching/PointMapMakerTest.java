@@ -28,7 +28,7 @@ public class PointMapMakerTest {
         File f = new File("test\\4208888.gpx");
         List<Geocache> list = ImportGPXFile.verifyGPXFile(f);
         File shpFile = new File("test\\ne_10m_land.shp");
-        BufferedImage i = PointMapMaker.createPointMap(list, 750, 750, shpFile);
+        BufferedImage i = PointMapMaker.createPointMap(list, 750, 600, shpFile);
         
         File output = new File("pointmap.png");
         try {
@@ -51,5 +51,10 @@ public class PointMapMakerTest {
     public void testImageGenerationNullList() {
         BufferedImage i = PointMapMaker.createPointMap(null, 400, 400, null);
         Assert.assertNull(i);
+    }
+    
+    @Test
+    public void testLegendImageLoadingOK() {
+        Assert.assertNotNull(new PointMapMaker().makeLegend(0));
     }
 }

@@ -2,6 +2,7 @@ package geocaching;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import org.geotools.data.FileDataStore;
 import org.geotools.data.FileDataStoreFinder;
 import org.geotools.data.simple.SimpleFeatureSource;
@@ -29,7 +31,7 @@ class PointMapMaker {
     public static BufferedImage createPointMap(List<Geocache> geocaches, int imageWidth, int imageHeight,
             File shpFile) {
         // Calculate bounds TODO get this information from GPX file
-        try {
+        try { // TODO remove this big huge try block
             float boundNorth = -200;
             float boundSouth = 200;              
             float boundWest = 200; 
@@ -172,5 +174,22 @@ class PointMapMaker {
         
         
         return renderer;
+    }
+    
+    public BufferedImage makeLegend(int keyPlacement) {
+        try {
+            // TODO: Find a more efficient way to do this!
+            BufferedImage traditional = ImageIO.read(new File("src/resources/images/traditional.gif"));
+            BufferedImage multi = ImageIO.read(new File("src/resources/images/multi.gif"));
+            BufferedImage mystery = ImageIO.read(new File("src//resources/images/mystery.gif"));
+        } catch (IOException ex) {
+            Logger.getLogger(ImportGPXFile.class.getName()).log(Level.SEVERE, "Image loading failed", ex);
+            return null;
+        }
+        
+        //Images loaded correctly, so we need to make the key
+        
+        
+        return new BufferedImage(10, 10, 10);
     }
 }
