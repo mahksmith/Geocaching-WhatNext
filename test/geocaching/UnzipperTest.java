@@ -12,14 +12,14 @@ public class UnzipperTest {
     
     @Test
     public void testZipFileOK() {
-        File f = new File("test\\geocaching\\testZIP.zip");
+        File f = new File("test/testZIP.zip");
         List<ByteArrayOutputStream> files = Unzipper.unZip(f);
         Assert.assertTrue(files.size() > 0);
     }
     
     @Test
     public void testZipFileNotOK() {
-        File f = new File("test\\geocaching\\testGPX.gpx");
+        File f = new File("test/testGPX.gpx");
         List<ByteArrayOutputStream> files = Unzipper.unZip(f);
         Assert.assertTrue(files.size() == 0);
     }

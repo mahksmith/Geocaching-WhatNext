@@ -188,7 +188,7 @@ class PointMapMaker {
         }
         
         //Images loaded correctly, so we need to make the key
-        
+        //TODO
         
         return new BufferedImage(10, 10, 10);
     }

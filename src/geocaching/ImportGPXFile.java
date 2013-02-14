@@ -22,6 +22,9 @@ public class ImportGPXFile {
     
 
     public static List<Geocache> verifyGPXFile(File f) {
+        if (f == null) {
+            throw new IllegalArgumentException();
+        }
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -30,14 +33,15 @@ public class ImportGPXFile {
             return verifyGPX(doc);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
             Logger.getLogger(ImportGPXFile.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(ImportGPXFile.class.getName()).log(Level.WARNING, "Need to set a file using setfile()", ex);
-        }
+        } 
         
         return null;
     }
     
     public static List<Geocache> verifyGPXString(String s) {
+        if (s == null) {
+            throw new IllegalArgumentException();
+        }
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -49,23 +53,20 @@ public class ImportGPXFile {
             return verifyGPX(doc);
         } catch (SAXException | IOException | ParserConfigurationException ex ) {
             Logger.getLogger(ImportGPXFile.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NullPointerException ex) {
-            Logger.getLogger(ImportGPXFile.class.getName()).log(Level.WARNING, 
-                    "Failed to give String for input", ex);
-        }
+        } 
         
         return null;
+        
     }
     
-    private static List<Geocache> verifyGPX(final Document doc) {
+    private static List<Geocache> verifyGPX(Document doc) {
         List<Geocache> geocaches = new ArrayList<>();
         doc.getDocumentElement().normalize();
         
         NodeList nList = doc.getElementsByTagName("wpt");
         
         // Iterate through every single waypoint in list.
-        for (int temp = 0; temp < nList.getLength(); temp++) {          
-            
+        for (int temp = 0; temp < nList.getLength(); temp++) {
             Node nNode = nList.item(temp);
             
             Element eElement = (Element) nNode;

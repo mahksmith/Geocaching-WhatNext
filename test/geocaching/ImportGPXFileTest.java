@@ -15,14 +15,14 @@ public class ImportGPXFileTest {
     @Test
     public void fileVerificationNonGPX() {
         geocaches = ImportGPXFile.verifyGPXFile(
-                new File("test\\geocaching\\testZIP.zip"));
+                new File("test/testZIP.zip"));
         Assert.assertNull(geocaches);
     }
     
     @Test
     public void fileVerificationGPX() {
         geocaches = ImportGPXFile.verifyGPXFile(
-                new File("test\\geocaching\\testGPX.gpx"));
+                new File("test/testGPX.gpx"));
         Assert.assertEquals(1000, geocaches.size());
     }
     
@@ -38,10 +38,11 @@ public class ImportGPXFileTest {
          * to take the output from unzipping..
          */
         List<ByteArrayOutputStream> output;
-        output = Unzipper.unZip(new File("test\\geocaching\\testZIP.zip"));
+        output = Unzipper.unZip(new File("test/testZIP.zip"));
         geocaches = new ArrayList<>();
         for (ByteArrayOutputStream baos : output) {
-            geocaches.addAll(ImportGPXFile.verifyGPXString(baos.toString()));
+            List<Geocache> list = ImportGPXFile.verifyGPXString(baos.toString());
+            geocaches.addAll(list);
         }
         // Checking all geocaches are accounted for
         Assert.assertEquals(1000, geocaches.size());
@@ -53,9 +54,8 @@ public class ImportGPXFileTest {
         Assert.assertNull(geocaches);
     }
     
-    @Test
+    @Test(expected=IllegalArgumentException.class)
     public void testNullStringOK() {
         geocaches = ImportGPXFile.verifyGPXString(null);
-        Assert.assertNull(geocaches);
     }
 }
