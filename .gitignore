@@ -1,1 +1,3 @@
 /dist/*
+/build/classes/*
+/build/test/classes/*

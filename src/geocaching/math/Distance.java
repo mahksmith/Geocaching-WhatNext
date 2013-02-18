@@ -2,6 +2,7 @@ package geocaching.math;
 
 import geocaching.waypoint.Waypoint;
 import java.awt.Point;
+import java.util.Arrays;
 
 public class Distance {
     
@@ -15,11 +16,22 @@ public class Distance {
     public static double calculatePythagorean(Waypoint a, Waypoint b) {
         
         
-        Point aUTM = geocaching.math.ConvertCoordinates.FromLatLonToUTM(a);
-        Point bUTM = geocaching.math.ConvertCoordinates.FromLatLonToUTM(b);
+        //Point aUTM = geocaching.math.ConvertCoordinates.FromLatLonToUTM(a);
+        //Point bUTM = geocaching.math.ConvertCoordinates.FromLatLonToUTM(b);
         
-        double easting = a.getEasting() - b.getEasting();
-        double northing = a.getNorthing() - b.getNorthing();
+        CoordinateConversion c = new CoordinateConversion();
+        String c1 = c.latLon2UTM(a.getNorthing(), a.getEasting());
+        String c2 = c.latLon2UTM(b.getNorthing(), b.getEasting());
+        String[] split = c1.split("\\s");
+        double c1East = Double.parseDouble(split[2]);
+        double c1North = Double.parseDouble(split[3]);
+        
+        split = c2.split("\\s");
+        int c2East = Integer.parseInt(split[2]);
+        int c2North = Integer.parseInt(split[3]);
+        
+        double easting = c1East - c2East;
+        double northing = c1North - c2North;
         
         double eastingsqr = Math.pow(easting, 2);
         double northingsqr = Math.pow(northing, 2);
