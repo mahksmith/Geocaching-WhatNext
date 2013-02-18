@@ -1,5 +1,6 @@
 package geocaching;
 
+import geocaching.waypoint.geocache.Geocache;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -8,7 +9,9 @@ public class GeocacheTest {
     
     @BeforeClass
     public static void setUp() {
-        geocacheOK = new Geocache.Builder("GC12345", -37, 175).build();
+        geocacheOK = new Geocache.Builder("GC12345", -37, 175)
+                .withType("Geocache|Traditional Cache")
+                .build();
     }
     
     private static Geocache geocacheOK;
@@ -17,7 +20,10 @@ public class GeocacheTest {
     public void testNewGeocacheAllOK() {
         // Checking each required parameter
         Assert.assertNotNull(geocacheOK.getName());
-        Assert.assertNotNull(geocacheOK.getLat());
-        Assert.assertNotNull(geocacheOK.getLon());
+        Assert.assertNotNull(geocacheOK.getNorthing());
+        Assert.assertNotNull(geocacheOK.getEasting());
+        
+        // Checking each optional parameter
+        Assert.assertNotNull(geocacheOK.getType());
     }
 }

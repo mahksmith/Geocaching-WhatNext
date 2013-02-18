@@ -1,5 +1,8 @@
 package geocaching;
 
+import geocaching.waypoint.geocache.Geocache;
+import geocaching.io.ImportGPXFile;
+import geocaching.map.PointMapMaker;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.image.BufferedImage;

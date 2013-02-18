@@ -1,5 +1,8 @@
 package geocaching;
 
+import geocaching.waypoint.geocache.Geocache;
+import geocaching.io.Unzipper;
+import geocaching.io.ImportGPXFile;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
