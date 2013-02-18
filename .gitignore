@@ -2,3 +2,4 @@
 /build/classes/*
 /build/test/classes/*
 /build/test/results/*
+build/build-jar.properties

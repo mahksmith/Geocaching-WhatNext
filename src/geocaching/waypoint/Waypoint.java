@@ -4,12 +4,14 @@
  */
 package geocaching.waypoint;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mark
  */
-public class Waypoint{
-    // TODO this
+public class Waypoint implements Serializable {
+    
     private final float northing;
     private final float easting;
     private final String name;
@@ -30,6 +32,11 @@ public class Waypoint{
     }
     
     public String getName() {
+        return this.name;
+    }
+    
+    @Override
+    public String toString() {
         return this.name;
     }
     

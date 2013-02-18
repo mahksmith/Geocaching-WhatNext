@@ -1,10 +1,10 @@
 package geocaching.math;
 
 import geocaching.waypoint.Waypoint;
-import java.awt.Point;
-import java.util.Arrays;
 
 public class Distance {
+    
+    public static final int EARTH_CIRCUMFERENCE = 40076; // equatorial, rounded up
     
     /**
      * Calculates the distance between two coordinates. Coordinates are converted

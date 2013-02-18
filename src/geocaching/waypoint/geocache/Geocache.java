@@ -39,6 +39,7 @@ public class Geocache extends Waypoint {
             return this;
         }
         
+        @Override
         public Geocache build() {
             
             return new Geocache(this);
