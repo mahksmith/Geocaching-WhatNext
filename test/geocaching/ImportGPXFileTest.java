@@ -5,7 +5,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import junit.framework.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class ImportGPXFileTest {

@@ -4,4 +4,14 @@ Notes for myself for future implementation:
  * Distribution stats -> highest / lowest density areas for both PocketQueries and MyFinds
    - I'd like to make the program produce a .png map of this.
      - Heat map of distribution
+     - Adjust PointMapMaker so that land and sea are differentiated.
   - Heat maps need to be of variable resolution size (bin size)
+ * Regular statistics of finds
+ * Recommendation of Geocaches to find based on various measurements
+   - Cache saturation
+   - Terrain and difficulty levels
+   - Favourite points
+   - Distance from home coordinates
+
+Completed:
+ * Map maker that creates a map (including basemap from naturalearthdata.com) of caches from .GPX file supplied.

@@ -2,7 +2,6 @@ package geocaching;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -19,11 +18,9 @@ import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.map.FeatureLayer;
 import org.geotools.map.Layer;
 import org.geotools.map.MapContent;
-import org.geotools.map.MapViewport;
+import org.geotools.renderer.lite.StreamingRenderer;
 import org.geotools.styling.SLD;
 import org.geotools.styling.Style;
-import org.geotools.renderer.*;
-import org.geotools.renderer.lite.StreamingRenderer;
 
 class PointMapMaker {
     static int pointSize = 3;
