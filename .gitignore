@@ -1,3 +1,4 @@
 /dist/*
 /build/classes/*
 /build/test/classes/*
+/build/test/results/*
