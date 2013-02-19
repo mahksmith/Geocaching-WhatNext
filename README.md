@@ -1,4 +1,6 @@
 An app for Geocaching that reads in a PocketQuery and tells you where the best place for you to go Geocaching based on your preferences and historical data.
+You can see my more current organisation board here: https://trello.com/b/Tc67v6VA
+
 
 Notes for myself for future implementation:
  * Distribution statistics -> highest / lowest density areas for both Pocket Queries and MyFinds
