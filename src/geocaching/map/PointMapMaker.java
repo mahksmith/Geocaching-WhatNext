@@ -24,6 +24,10 @@ import org.geotools.renderer.lite.StreamingRenderer;
 import org.geotools.styling.SLD;
 import org.geotools.styling.Style;
 
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class PointMapMaker {
     static int pointSize = 3;
     

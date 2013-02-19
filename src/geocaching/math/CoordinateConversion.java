@@ -1,13 +1,14 @@
-/*
- * Author: Sami Salkosuo, sami.salkosuo@fi.ibm.com
- *
- * (c) Copyright IBM Corp. 2007
- */
 package geocaching.math;
 
 import java.util.Hashtable;
 import java.util.Map;
 
+/**
+ * 
+ * @author Sami Salkosuo, sami.salkosuo@fi.ibm.com
+ * 
+ * (c) Copyright IBM Corp. 2007
+ */
 public class CoordinateConversion
 {
 

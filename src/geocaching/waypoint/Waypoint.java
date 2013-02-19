@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Mark
+ * @author Mark Smith, mark@marksmith.geek.nz
  */
 public class Waypoint implements Serializable {
     

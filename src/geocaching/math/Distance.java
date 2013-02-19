@@ -2,6 +2,10 @@ package geocaching.math;
 
 import geocaching.waypoint.Waypoint;
 
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class Distance {
     
     public static final int EARTH_CIRCUMFERENCE = 40076; // equatorial, rounded up
@@ -9,9 +13,9 @@ public class Distance {
     /**
      * Calculates the distance between two coordinates. Coordinates are converted
      * to UTM coordinates as UTM uses meters from reference points.
-     * @param a First waypoint
-     * @param b Second waypoint
-     * @return Distance between waypoint a and waypoint b in kilometers
+     * @param a First Waypoint
+     * @param b Second Waypoint
+     * @return Distance between Waypoint a and Waypoint b in kilometers
      */
     public static double calculatePythagorean(Waypoint a, Waypoint b) {
         

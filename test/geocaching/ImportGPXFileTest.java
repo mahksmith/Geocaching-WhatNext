@@ -10,6 +10,10 @@ import java.util.List;
 import junit.framework.Assert;
 import org.junit.Test;
 
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class ImportGPXFileTest {
     
     private List<Geocache> geocaches;

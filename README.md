@@ -11,7 +11,7 @@ Notes for myself for future implementation:
    - Cache saturation
    - Terrain and difficulty levels
    - Favourite points (can't get this information from PocketQuery yet)
-   - Distance from home coordinates
+   - Distance from specified / home coordinates (DONE)
 
 Completed:
  * Map maker that creates a map (including basemap from naturalearthdata.com) of caches from .GPX file supplied.

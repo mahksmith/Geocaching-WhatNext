@@ -18,7 +18,10 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class ImportGPXFile {
     
 

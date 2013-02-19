@@ -2,6 +2,10 @@ package geocaching.waypoint.geocache;
 
 import geocaching.waypoint.Waypoint;
 
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class Geocache extends Waypoint {
         
     private final String type;

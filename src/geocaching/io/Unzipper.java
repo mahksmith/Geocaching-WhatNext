@@ -14,6 +14,10 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class Unzipper{
     private static final int BUFFER_SIZE = 2048;
     

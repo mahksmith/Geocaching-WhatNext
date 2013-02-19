@@ -13,6 +13,10 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class PointMapMakerTest {
     
     @Test

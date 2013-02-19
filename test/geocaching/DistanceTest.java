@@ -4,6 +4,10 @@ import geocaching.waypoint.geocache.Geocache;
 import junit.framework.Assert;
 import org.junit.Test;
 
+/**
+ * 
+ * @author Mark Smith, mark@marksmith.geek.nz
+ */
 public class DistanceTest {
     
     @Test
