@@ -26,8 +26,10 @@ public class WeightedScoreModelTest {
     @Test
     public void testScoreDistanceOK() {
         Waypoint home = new Waypoint.Builder("home", -37, 175).build();
-        Geocache g = new Geocache.Builder("g", -36, 174).build();
-        Geocache h = new Geocache.Builder("h", -38, 176).build();
+        Geocache g = new Geocache.Builder("g", -36, 174)
+                .withDifficulty("2.0").build();
+        Geocache h = new Geocache.Builder("h", -38, 176)
+                .withDifficulty("2.5").build();
         
         // simulate list of geocaches
         List<Geocache> list = new ArrayList<>();        
@@ -36,8 +38,10 @@ public class WeightedScoreModelTest {
         
         slm = new WeightedScoreModel(list);
         slm.calculateDistanceScore(141, home);
+        slm.calculateTerrainScore(2.5);
         slm.geometricMean();
         SortedMap<Geocache,Double> sorted = slm.returnScores();
+        System.out.println(sorted);
         Assert.assertTrue(sorted.get(h) > sorted.get(g));
         
    }

@@ -9,15 +9,21 @@ import geocaching.waypoint.Waypoint;
 public class Geocache extends Waypoint {
         
     private final String type;
+    private final double terrain;
 
     public Geocache(Builder builder) {
         super(builder);
         
         this.type = builder.type;
+        this.terrain = builder.terrain;
     }
     
     public String getType() {
         return this.type;
+    }
+
+    public double getTerrain() {
+        return this.terrain;
     }
     
     /**
@@ -32,6 +38,7 @@ public class Geocache extends Waypoint {
         
         // optional parameters;
         private String type;
+        private double terrain;
         
         public Builder(String name, float northing, float easting) {
             super(name, northing, easting);
@@ -40,6 +47,11 @@ public class Geocache extends Waypoint {
         
         public Builder withType(String val) {
             this.type = val; 
+            return this;
+        }
+        
+        public Builder withDifficulty(String val) {
+            this.terrain = Double.parseDouble(val);
             return this;
         }
         

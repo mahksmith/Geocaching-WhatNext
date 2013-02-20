@@ -37,9 +37,7 @@ public class WeightedScoreModel {
      * @param home Home waypoint
      */
     public void calculateDistanceScore(double distancePreferred, Waypoint home) {
-        // initially, iterate through all caches calculating greatest distance
-        // probably not efficient.
-        Map<Geocache, Double> distances = new HashMap<>();
+        
         for (Geocache geocache : geocaches) {
             double distanceToHome = geocaching.math.Distance.calculatePythagorean(home, geocache);
             double distanceToPreferred = Math.abs(distanceToHome - distancePreferred);
@@ -47,19 +45,34 @@ public class WeightedScoreModel {
             /* Might not be the best method of scoring, but should work well
              * when using the "Geometric mean". */
             double score = 1 / distanceToPreferred;
-            score = score * scores.get(geocache);
-            scores.put(geocache, score);
+            updateScore(geocache, score);
         }
-        
         // Is there a better way to add this to every method
         ++scoringMethodsUsed;
+    }
+    
+    public void calculateTerrainScore(double terrainPreferred) {
+        for (Geocache geocache : geocaches) {
+            double distanceToPreferred = geocache.getTerrain() - terrainPreferred;
+            distanceToPreferred = Math.abs(distanceToPreferred);
+            
+            // scoring
+            distanceToPreferred = 1.0 / (1.0 + distanceToPreferred);
+            updateScore(geocache, distanceToPreferred);
+        }
+        ++scoringMethodsUsed;
+    }
+    
+    private void updateScore(Geocache geocache, double score) {
+        double s = score * scores.get(geocache);
+        scores.put(geocache, s);
     }
     
     public void geometricMean() {
         for (Geocache g : geocaches) {
             // All the scores have been pre-multiplied, only need to take kth root
             double score = scores.get(g);
-            score = Math.pow(score, 1 / scoringMethodsUsed);
+            score = Math.pow(score, 1.0 / scoringMethodsUsed);
             scores.put(g, score);
         }
     }
