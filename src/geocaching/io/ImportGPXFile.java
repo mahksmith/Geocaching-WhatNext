@@ -88,6 +88,7 @@ public class ImportGPXFile {
             float lon = Float.parseFloat(eElement.getAttribute("lon"));
             
             String type = eElement.getElementsByTagName("type").item(0).getTextContent();
+            String terrain = eElement.getElementsByTagName("groundspeak:terrain").item(0).getTextContent();
             String difficulty = eElement.getElementsByTagName("groundspeak:difficulty").item(0).getTextContent();
                         
             // Waypoint parameters
@@ -95,6 +96,7 @@ public class ImportGPXFile {
             
             Geocache newGeocache = new Geocache.Builder(name, lat, lon)
                     .withType(type)
+                    .withTerrain(terrain)
                     .withDifficulty(difficulty)
                     .build();         
             

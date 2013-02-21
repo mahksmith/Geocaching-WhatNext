@@ -37,18 +37,28 @@ public class WeightedScoreModel {
      * @param home Home waypoint
      */
     public void calculateDistanceScore(double distancePreferred, Waypoint home) {
-        
+        /* This might need a better scoring method, but it's not percentage 
+         * based and users do not need to know the score. */
         for (Geocache geocache : geocaches) {
             double distanceToHome = geocaching.math.Distance.calculatePythagorean(home, geocache);
             double distanceToPreferred = Math.abs(distanceToHome - distancePreferred);
             
-            /* Might not be the best method of scoring, but should work well
+            /* Might not be the best method of scoring, but should work ok
              * when using the "Geometric mean". */
             double score = 1 / distanceToPreferred;
             updateScore(geocache, score);
         }
-        // Is there a better way to add this to every method
-        ++scoringMethodsUsed;
+    }
+    
+    public void calculateDifficultyScore(double difficultyPreferred) {
+        for (Geocache geocache : geocaches) {
+            double distanceToPreferred = geocache.getDifficulty() - difficultyPreferred;
+            distanceToPreferred = Math.abs(distanceToPreferred);
+            System.out.println(distanceToPreferred);
+            
+            distanceToPreferred = 1.0 / (1.0 + distanceToPreferred);
+            updateScore(geocache, distanceToPreferred);
+        }
     }
     
     public void calculateTerrainScore(double terrainPreferred) {
@@ -60,12 +70,12 @@ public class WeightedScoreModel {
             distanceToPreferred = 1.0 / (1.0 + distanceToPreferred);
             updateScore(geocache, distanceToPreferred);
         }
-        ++scoringMethodsUsed;
     }
     
     private void updateScore(Geocache geocache, double score) {
         double s = score * scores.get(geocache);
         scores.put(geocache, s);
+        ++scoringMethodsUsed;
     }
     
     public void geometricMean() {

@@ -15,7 +15,7 @@ public class GeocacheTest {
     public static void setUp() {
         geocacheOK = new Geocache.Builder("GC12345", -37, 175)
                 .withType("Geocache|Traditional Cache")
-                .withDifficulty("2")
+                .withTerrain("2")
                 .build();
     }
     
