@@ -61,7 +61,7 @@ public class PointMapMakerTest extends TestCase {
         float cacheLat = 0.0F;
         float cacheLon = 0.0F;
         Point expResult = new Point(0, 0);
-        Point result = PointMapMaker.findPositionOnMap(imageWidth, imageHeight, northBound, southBound, westBound, eastBound, cacheLat, cacheLon);
+        Point result = PointMapMaker.findPixelOfCoordinate(imageWidth, imageHeight, northBound, southBound, westBound, eastBound, cacheLat, cacheLon);
         assertEquals(expResult, result);
     }
 
@@ -69,7 +69,7 @@ public class PointMapMakerTest extends TestCase {
 
         assertEquals(
                 new Point(222, 60),
-                PointMapMaker.findPositionOnMap(
+                PointMapMaker.findPixelOfCoordinate(
                 400, 400, -37.2f, -39.6f, 175.2f, 176.6f, -37.56f, 175.98f));
 
     }
