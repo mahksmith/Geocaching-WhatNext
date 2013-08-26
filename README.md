@@ -16,4 +16,4 @@ Notes for myself for future implementation:
    - Distance from specified / home coordinates (DONE)
 
 Completed:
- * Map maker that creates a map (including basemap from naturalearthdata.com) of caches from .GPX file supplied.
+ * Map maker that creates a map (including basemap from naturalearthdata.com) of caches from .GPX file supplied: ![Finds Map](https://raw.github.com/mahksmith/Geocaching-WhatNext/master/src/main/resources/testfiles/pointmap.png)
