@@ -30,7 +30,7 @@ import org.geotools.styling.Style;
  */
 public class PointMapMaker {
 
-    static int pointSize = 2;
+    static int pointSize = 4;
 
     public static BufferedImage createPointMap(List<Geocache> geocaches, int imageWidth, int imageHeight,
             File shpFile) {
@@ -178,16 +178,17 @@ public class PointMapMaker {
                 c = Color.RED;
                 break;
             case "Geocache|Virtual Cache":
-                c = Color.CYAN;
+                c = Color.MAGENTA;
                 break;
             case "Geocache|Webcam Cache":
-                c = Color.CYAN;
+                c = Color.MAGENTA;
                 break;
             case "Geocache|Earthcache":
-                c = Color.CYAN;
+                c = new Color(0, 64, 0);
                 break;
             case "Geocache|Unknown Cache":
-                c = Color.BLUE;
+//                c = Color.BLUE;
+                c = new Color(00, 128, 255); // A lighter blue.
                 break;
             case "Geocache|Wherigo Cache":
                 c = Color.MAGENTA;
