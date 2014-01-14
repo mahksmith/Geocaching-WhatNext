@@ -21,7 +21,7 @@ import nz.geek.marksmith.gcwhatnext.io.ImportGPXFile;
  * @author mark
  */
 public class PointMapMakerTest extends TestCase {
-
+    private String username = "test";
     public PointMapMakerTest(String testName) {
         super(testName);
     }
@@ -47,7 +47,7 @@ public class PointMapMakerTest extends TestCase {
         int imageHeight = 0;
         File shpFile = null;
         BufferedImage expResult = null;
-        BufferedImage result = PointMapMaker.createPointMap(geocaches, imageWidth, imageHeight, shpFile);
+        BufferedImage result = PointMapMaker.createPointMap(geocaches, imageWidth, imageHeight, shpFile, username);
         assertEquals(expResult, result);
     }
 
@@ -78,7 +78,7 @@ public class PointMapMakerTest extends TestCase {
         File f = new File("src/main/resources/testfiles/4208888.gpx");
         List<Geocache> list = ImportGPXFile.verifyGPXFile(f);
         File shpFile = new File("src/main/resources/testfiles/ne_10m_land.shp");
-        BufferedImage i = PointMapMaker.createPointMap(list, 750, 600, shpFile);
+        BufferedImage i = PointMapMaker.createPointMap(list, 750, 600, shpFile, username);
 
         File output = new File("src/main/resources/testfiles/pointmap.png");
         try {
@@ -92,12 +92,28 @@ public class PointMapMakerTest extends TestCase {
 
     public void testImageGenerationZeroList() {
         ArrayList<Geocache> list = new ArrayList<>();
-        Image i = PointMapMaker.createPointMap(list, 400, 400, null);
+        Image i = PointMapMaker.createPointMap(list, 400, 400, null, username);
         assertNotNull(i);
     }
 
     public void testImageGenerationNullList() {
-        BufferedImage i = PointMapMaker.createPointMap(null, 400, 400, null);
+        BufferedImage i = PointMapMaker.createPointMap(null, 400, 400, null, username);
         assertNull(i);
+    }
+    
+    public void testImageGenerationAcrossPositiveAndNegativeCoords() {
+        File f = new File("src/main/resources/testfiles/testother.gpx");
+        List<Geocache> list = ImportGPXFile.verifyGPXFile(f);
+        File shpFile = new File("src/main/resources/testfiles/ne_10m_land.shp");
+        BufferedImage i = PointMapMaker.createPointMap(list, 750, 600, shpFile, "test");
+
+        File output = new File("src/main/resources/testfiles/pointmap_test2.png");
+        try {
+            javax.imageio.ImageIO.write(i, "png", output);
+        } catch (java.io.IOException ex) {
+            System.err.println(ex);
+        }
+
+        assertNotNull(i);
     }
 }

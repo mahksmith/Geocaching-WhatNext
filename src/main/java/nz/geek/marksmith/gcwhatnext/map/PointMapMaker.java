@@ -3,6 +3,7 @@ package nz.geek.marksmith.gcwhatnext.map;
 import nz.geek.marksmith.gcwhatnext.waypoint.geocache.Geocache;
 import nz.geek.marksmith.gcwhatnext.io.ImportGPXFile;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -33,7 +34,7 @@ public class PointMapMaker {
     static int pointSize = 4;
 
     public static BufferedImage createPointMap(List<Geocache> geocaches, int imageWidth, int imageHeight,
-            File shpFile) {
+            File shpFile, String username) {
         // Calculate bounds TODO get this information from GPX file
         try { // TODO remove this big huge try block
             float boundNorth = -200;
@@ -88,18 +89,25 @@ public class PointMapMaker {
                 float ratioImageY = 1;
 
                 if (imageWidth < imageHeight) {
-                    ratioImageY = (float) imageWidth / imageHeight;
+                    ratioImageY = (float) imageWidth / imageHeight; 
                     diffY = diffY / ratioImageY;
                     float yMean = (boundNorth + boundSouth) / 2;
                     boundNorth = yMean + (0.5f * diffY);
                     boundSouth = yMean - (0.5f * diffY);
 
                 } else { // Width >= Height
-                    ratioImageX = (float) imageHeight / imageWidth;
+                    ratioImageX = (float) imageHeight / imageWidth; 
                     diffX = diffX / ratioImageX;
                     float xMean = (boundEast + boundWest) / 2;
-                    boundWest = xMean - (0.5f * diffX);
-                    boundEast = xMean + (0.5f * diffX);
+                    if (boundWest < 0 && boundEast > 0) {
+                        boundWest = xMean - (0.5f * diffY);
+                        boundEast = xMean + (0.5f * diffY);
+                        boundNorth /= 0.5f;
+                        boundSouth /= 0.5f;
+                    } else {
+                        boundWest = xMean - (0.5f * diffX);
+                        boundEast = xMean + (0.5f * diffX);
+                    }
                 }
 
                 envelope.include(boundWest, boundNorth);
@@ -119,6 +127,11 @@ public class PointMapMaker {
                         p.y - (int) (0.5 * pointSize), pointSize, pointSize);
 
             }
+            // Write text / key to image
+            graphics.setColor(Color.WHITE);
+            graphics.setFont(new Font("Arial Black", Font.PLAIN, 14));
+            String text = String.format("Finds by %s: %s", username, geocaches.size());
+            graphics.drawString(text, 20, 20);
 
             return image.getSubimage(0, 0, imageWidth, imageHeight);
         } catch (NullPointerException ex) {
