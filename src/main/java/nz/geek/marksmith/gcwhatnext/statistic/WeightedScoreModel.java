@@ -44,8 +44,6 @@ public class WeightedScoreModel {
             double distanceToHome = Distance.calculatePythagorean(home, geocache);
             double distanceToPreferred = Math.abs(distanceToHome - distancePreferred);
             
-            /* Might not be the best method of scoring, but should work ok
-             * when using the "Geometric mean". */
             double score = 1 / distanceToPreferred;
             updateScore(geocache, score);
         }
@@ -73,6 +71,19 @@ public class WeightedScoreModel {
         }
     }
     
+    public void calculateSaturationByDistanceScore(int saturationPreferred, double saturationDistance) {
+        // First, get number of caches inside the saturation distance.
+        
+        // Calculate score relative to preferred saturation
+        
+    }
+    
+    public void calculateSaturationByNearestCachesScore(int distancePreferred, int kNearestCaches) {
+        // Calculate average distance of k nearest geocaches
+        
+        // Calculate the score relative to preferred distance
+        
+    }
     private void updateScore(Geocache geocache, double score) {
         double s = score * scores.get(geocache);
         scores.put(geocache, s);

@@ -11,7 +11,7 @@ public class Distance {
     public static final int EARTH_CIRCUMFERENCE = 40076; // equatorial, rounded up
     
     /**
-     * Calculates the distance between two coordinates. Coordinates are converted
+     * Calculates the distance between two coordinates in decimal kilometres. Coordinates are converted
      * to UTM coordinates as UTM uses meters from reference points.
      * @param a First Waypoint
      * @param b Second Waypoint
