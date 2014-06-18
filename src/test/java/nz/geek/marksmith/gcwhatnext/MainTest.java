@@ -38,7 +38,7 @@ public class MainTest extends TestCase {
      */
     public void testMain() {
         System.out.println("main");
-        String[] args = null;
+        String[] args = { "" };
         Main.main(args);
     }
 }

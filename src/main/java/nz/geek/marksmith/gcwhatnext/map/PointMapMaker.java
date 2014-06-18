@@ -17,6 +17,7 @@ import javax.imageio.ImageIO;
 import org.geotools.data.FileDataStore;
 import org.geotools.data.FileDataStoreFinder;
 import org.geotools.data.simple.SimpleFeatureSource;
+import org.geotools.data.simple.SimpleFeatureStore;
 import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.map.FeatureLayer;
 import org.geotools.map.Layer;
@@ -25,7 +26,7 @@ import org.geotools.renderer.lite.StreamingRenderer;
 import org.geotools.styling.SLD;
 import org.geotools.styling.Style;
 
-/**
+/**args
  *
  * @author Mark Smith, mark@marksmith.geek.nz
  */
@@ -200,8 +201,10 @@ public class PointMapMaker {
                 c = new Color(0, 64, 0);
                 break;
             case "Geocache|Unknown Cache":
-//                c = Color.BLUE;
                 c = new Color(00, 128, 255); // A lighter blue.
+                break;
+            case "Geocache|Mystery Cache":
+                c = new Color(00, 128, 255);
                 break;
             case "Geocache|Wherigo Cache":
                 c = Color.MAGENTA;
@@ -220,6 +223,7 @@ public class PointMapMaker {
         StreamingRenderer renderer = new StreamingRenderer();
 
         FileDataStore dataStore;
+        SimpleFeatureStore featureStore;
         SimpleFeatureSource shapeFileSource;
         try {
             dataStore = FileDataStoreFinder.getDataStore(shpFile);
@@ -227,10 +231,10 @@ public class PointMapMaker {
         } catch (IOException ex) {
             return renderer;
         }
-        Style shpStyle = SLD.createPolygonStyle(Color.WHITE, Color.GREEN, 0.0f);
+        Style shpStyle = SLD.createPolygonStyle(Color.GRAY, Color.GREEN, 0.0f);
 
         final MapContent map = new MapContent();
-
+        
         Layer shpLayer = new FeatureLayer(shapeFileSource, shpStyle);
         map.addLayer(shpLayer);
         //StreamingRenderer renderer = new StreamingRenderer();

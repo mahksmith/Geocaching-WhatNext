@@ -21,7 +21,7 @@ import nz.geek.marksmith.gcwhatnext.io.ImportGPXFile;
  * @author mark
  */
 public class PointMapMakerTest extends TestCase {
-    private String username = "test";
+    private String username = "kyb3r";
     public PointMapMakerTest(String testName) {
         super(testName);
     }
